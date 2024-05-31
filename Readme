@@ -1,9 +1,58 @@
-templates contains html files used for frontend
-171_group_project.ipynb is the main jupyter notebook containing source code for eda, data preprocessing, model fitting, hyperparameter tuning, and results
-app.py is the flask code for the frontend
-How we increased model accuracy.ipynb contains further details on how we increased model accuracy and some unsuccessful attempts that did not make it to the final
-ohe.pkl is the pickled one hot encoder
-RF_model.pkl is the pickled random forest model
-train.csv is the dataset we used
+# Predicting Individual Income
 
-Frontend: run using "flask --app app run"
+## Introduction and Background
+
+In contemporary society, an individual's reported income holds profound implications, influencing tax obligations, access to government assistance, and the extension of credit by financial institutions. However, meticulously tracking and verifying each person's income places an immense burden on manpower and resources. Machine learning emerges as a transformative force, offering sophisticated models capable of predicting an individual's income based on various factors beyond reported earnings.
+
+Machine learning models provide dual benefits:
+1. **Uncovering System Exploiters**: By utilizing diverse factors beyond reported income, these models help identify individuals taking advantage of the system.
+2. **Enhancing Data Accuracy**: The integration of more accurate data into statistical studies reduces biases, fostering a more equitable system.
+
+### Dataset Description and Exploratory Data Analysis
+
+The income dataset comprises information on approximately 44,000 individuals, segmented into training and testing datasets (90:10 split). Key features include age, gender, race, hours-per-week, income classification, education, marital status, and work class. Data preprocessing steps included handling missing values and balancing the dataset to address class imbalance.
+
+### Proposed Methodology
+
+We implemented three machine learning models for income prediction based on demographics:
+
+1. **Random Forest Classifier**: Utilized hyper-parameter tuning and 10-fold cross-validation for optimal performance.
+2. **Logistic Regression**: Focused on feature independence and iterative optimization.
+3. **Neural Network**: Explored different hidden layers and iterations for optimal accuracy.
+
+### Experimental Results
+
+#### Logistic Regression
+- **Accuracy**: 0.82
+- **MSE**: 0.18
+
+#### Random Forest Classifier
+- **Accuracy**: 0.93
+- **MSE**: 0.064
+
+#### Neural Network
+- **Accuracy**: 0.83
+- **MSE**: 0.17
+
+The Random Forest Classifier outperformed the other models, achieving the highest accuracy and lowest MSE.
+
+### Conclusion and Discussion
+
+Our study demonstrates that demographic data can effectively predict individual income using machine learning models. While our Random Forest model showed significant improvement over previous studies, there is always room for future enhancements, such as better data preprocessing, addressing biases, and further hyper-parameter tuning.
+
+### References
+- Dataset: [Kaggle Income Dataset](https://www.kaggle.com/datasets/mastmustu/income/data)
+- Literature Review:
+  - Matz, Sandra C., et al. “Predicting Individual-Level Income From Facebook Profiles.” Plos One 14, no. 3 (2019): [DOI: 10.1371/journal.pone.0214369](https://doi.org/10.1371/journal.pone.0214369).
+  - Lazar, Alina. “Income Prediction via Support Vector Machine.” 2004 International Conference on Machine Learning and Applications (2004): [DOI: 10.1109/icmla.2004.1383506](https://doi.org/10.1109/icmla.2004.1383506).
+
+## Technology Used
+- **Programming Language**: Python
+- **Libraries**: Scikit-learn, Pandas, NumPy, Matplotlib
+- **Tools**: Jupyter Notebook, GitHub for version control
+
+## How to Use
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Zack1243/171-Project-12.git
+   cd 171-Project-12
